@@ -1,0 +1,11 @@
+MINIARCH1
+D 1
+.
+F 6 2
+f1.txt
+x
+D 3
+sub
+F 10 2
+sub/f2.txt
+y

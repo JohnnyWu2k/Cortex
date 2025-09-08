@@ -1,0 +1,3 @@
+C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/cortex.dir
+C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/edit_cache.dir
+C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/rebuild_cache.dir

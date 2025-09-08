@@ -1,0 +1,207 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: E:/c++/mingw/bin/c++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+      
+      The CXX compiler identification is Clang, found in:
+        C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/3.31.2/CompilerIdCXX/a.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem"
+      binary: "C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "E:/c++/mingw/bin/clang-scan-deps.exe"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem'
+        
+        Run Build Command(s): C:/Users/johnn/AppData/Local/Programs/Python/Python312/Scripts/ninja.exe -v cmTC_4ff98
+        [1/2] E:\\c++\\mingw\\bin\\c++.exe   -v -MD -MT CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_4ff98.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -c E:/c++/cmake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp
+        clang version 19.1.5 (https://github.com/llvm/llvm-project.git ab4b5a2db582958af1ee308a790cfdb42bd24720)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: E:/c++/mingw/bin
+        Configuration file: E:/c++/mingw/bin/x86_64-w64-windows-gnu.cfg
+         (in-process)
+         "E:/c++/mingw/bin/clang-19.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-sized-deallocation -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem -v -fcoverage-compilation-dir=C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem -resource-dir E:/c++/mingw/lib/clang/19 -dependency-file "CMakeFiles\\\\cmTC_4ff98.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem E:/c++/mingw/x86_64-w64-mingw32/include/c++/v1 -internal-isystem E:/c++/mingw/include/c++/v1 -internal-isystem E:/c++/mingw/lib/clang/19/include -internal-isystem E:/c++/mingw/x86_64-w64-mingw32/include -internal-isystem E:/c++/mingw/x86_64-w64-mingw32/usr/include -internal-isystem E:/c++/mingw/include -fdeprecated-macro -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -x c++ E:/c++/cmake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 19.1.5 based upon LLVM 19.1.5 default target x86_64-w64-mingw32\x0d
+        ignoring nonexistent directory "E:/c++/mingw/x86_64-w64-mingw32/include/c++/v1"\x0d
+        ignoring nonexistent directory "E:/c++/mingw/x86_64-w64-mingw32/include"\x0d
+        ignoring nonexistent directory "E:/c++/mingw/x86_64-w64-mingw32/usr/include"\x0d
+        #include "..." search starts here:\x0d
+        #include <...> search starts here:\x0d
+         E:/c++/mingw/include/c++/v1\x0d
+         E:/c++/mingw/lib/clang/19/include\x0d
+         E:/c++/mingw/include\x0d
+        End of search list.\x0d
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\c++\\mingw\\bin\\c++.exe  -v -Wl,-v CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_4ff98.exe -Wl,--out-implib,libcmTC_4ff98.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        clang version 19.1.5 (https://github.com/llvm/llvm-project.git ab4b5a2db582958af1ee308a790cfdb42bd24720)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: E:/c++/mingw/bin
+        Configuration file: E:/c++/mingw/bin/x86_64-w64-windows-gnu.cfg
+         "E:/c++/mingw/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_4ff98.exe E:/c++/mingw/x86_64-w64-mingw32/lib/crt2.o E:/c++/mingw/x86_64-w64-mingw32/lib/crtbegin.o -LE:/c++/mingw/x86_64-w64-mingw32/lib -LE:/c++/mingw/x86_64-w64-mingw32/mingw/lib -LE:/c++/mingw/lib -LE:/c++/mingw/lib/clang/19/lib/windows -v CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_4ff98.dll.a --major-image-version 0 --minor-image-version 0 -lc++ -lmingw32 E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/c++/mingw/x86_64-w64-mingw32/lib/crtend.o\x0d
+        LLD 19.1.5 (https://github.com/llvm/llvm-project.git ab4b5a2db582958af1ee308a790cfdb42bd24720) (compatible with GNU linkers)
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [E:/c++/mingw/include/c++/v1]
+          add: [E:/c++/mingw/lib/clang/19/include]
+          add: [E:/c++/mingw/include]
+        end of search list found
+        collapse include dir [E:/c++/mingw/include/c++/v1] ==> [E:/c++/mingw/include/c++/v1]
+        collapse include dir [E:/c++/mingw/lib/clang/19/include] ==> [E:/c++/mingw/lib/clang/19/include]
+        collapse include dir [E:/c++/mingw/include] ==> [E:/c++/mingw/include]
+        implicit include dirs: [E:/c++/mingw/include/c++/v1;E:/c++/mingw/lib/clang/19/include;E:/c++/mingw/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem']
+        ignore line: []
+        ignore line: [Run Build Command(s): C:/Users/johnn/AppData/Local/Programs/Python/Python312/Scripts/ninja.exe -v cmTC_4ff98]
+        ignore line: [[1/2] E:\\c++\\mingw\\bin\\c++.exe   -v -MD -MT CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_4ff98.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -c E:/c++/cmake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 19.1.5 (https://github.com/llvm/llvm-project.git ab4b5a2db582958af1ee308a790cfdb42bd24720)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: E:/c++/mingw/bin]
+        ignore line: [Configuration file: E:/c++/mingw/bin/x86_64-w64-windows-gnu.cfg]
+        ignore line: [ (in-process)]
+        ignore line: [ "E:/c++/mingw/bin/clang-19.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-sized-deallocation -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem -v -fcoverage-compilation-dir=C:/Users/johnn/Desktop/cpp/minios/build/CMakeFiles/CMakeScratch/TryCompile-19ddem -resource-dir E:/c++/mingw/lib/clang/19 -dependency-file "CMakeFiles\\\\cmTC_4ff98.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem E:/c++/mingw/x86_64-w64-mingw32/include/c++/v1 -internal-isystem E:/c++/mingw/include/c++/v1 -internal-isystem E:/c++/mingw/lib/clang/19/include -internal-isystem E:/c++/mingw/x86_64-w64-mingw32/include -internal-isystem E:/c++/mingw/x86_64-w64-mingw32/usr/include -internal-isystem E:/c++/mingw/include -fdeprecated-macro -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -x c++ E:/c++/cmake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 19.1.5 based upon LLVM 19.1.5 default target x86_64-w64-mingw32\x0d]
+        ignore line: [ignoring nonexistent directory "E:/c++/mingw/x86_64-w64-mingw32/include/c++/v1"\x0d]
+        ignore line: [ignoring nonexistent directory "E:/c++/mingw/x86_64-w64-mingw32/include"\x0d]
+        ignore line: [ignoring nonexistent directory "E:/c++/mingw/x86_64-w64-mingw32/usr/include"\x0d]
+        ignore line: [#include "..." search starts here:\x0d]
+        ignore line: [#include <...> search starts here:\x0d]
+        ignore line: [ E:/c++/mingw/include/c++/v1\x0d]
+        ignore line: [ E:/c++/mingw/lib/clang/19/include\x0d]
+        ignore line: [ E:/c++/mingw/include\x0d]
+        ignore line: [End of search list.\x0d]
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\c++\\mingw\\bin\\c++.exe  -v -Wl -v CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_4ff98.exe -Wl --out-implib libcmTC_4ff98.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [clang version 19.1.5 (https://github.com/llvm/llvm-project.git ab4b5a2db582958af1ee308a790cfdb42bd24720)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: E:/c++/mingw/bin]
+        ignore line: [Configuration file: E:/c++/mingw/bin/x86_64-w64-windows-gnu.cfg]
+        link line: [ "E:/c++/mingw/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_4ff98.exe E:/c++/mingw/x86_64-w64-mingw32/lib/crt2.o E:/c++/mingw/x86_64-w64-mingw32/lib/crtbegin.o -LE:/c++/mingw/x86_64-w64-mingw32/lib -LE:/c++/mingw/x86_64-w64-mingw32/mingw/lib -LE:/c++/mingw/lib -LE:/c++/mingw/lib/clang/19/lib/windows -v CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_4ff98.dll.a --major-image-version 0 --minor-image-version 0 -lc++ -lmingw32 E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/c++/mingw/x86_64-w64-mingw32/lib/crtend.o\x0d]
+          arg [E:/c++/mingw/bin/ld.lld] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_4ff98.exe] ==> ignore
+          arg [E:/c++/mingw/x86_64-w64-mingw32/lib/crt2.o] ==> obj [E:/c++/mingw/x86_64-w64-mingw32/lib/crt2.o]
+          arg [E:/c++/mingw/x86_64-w64-mingw32/lib/crtbegin.o] ==> obj [E:/c++/mingw/x86_64-w64-mingw32/lib/crtbegin.o]
+          arg [-LE:/c++/mingw/x86_64-w64-mingw32/lib] ==> dir [E:/c++/mingw/x86_64-w64-mingw32/lib]
+          arg [-LE:/c++/mingw/x86_64-w64-mingw32/mingw/lib] ==> dir [E:/c++/mingw/x86_64-w64-mingw32/mingw/lib]
+          arg [-LE:/c++/mingw/lib] ==> dir [E:/c++/mingw/lib]
+          arg [-LE:/c++/mingw/lib/clang/19/lib/windows] ==> dir [E:/c++/mingw/lib/clang/19/lib/windows]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_4ff98.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_4ff98.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lc++] ==> lib [c++]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [E:/c++/mingw/x86_64-w64-mingw32/lib/crtend.o] ==> obj [E:/c++/mingw/x86_64-w64-mingw32/lib/crtend.o]
+        linker tool for 'CXX': E:/c++/mingw/bin/ld.lld
+        remove lib [E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        remove lib [E:/c++/mingw/lib/clang/19/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        collapse library dir [E:/c++/mingw/x86_64-w64-mingw32/lib] ==> [E:/c++/mingw/x86_64-w64-mingw32/lib]
+        collapse library dir [E:/c++/mingw/x86_64-w64-mingw32/mingw/lib] ==> [E:/c++/mingw/x86_64-w64-mingw32/mingw/lib]
+        collapse library dir [E:/c++/mingw/lib] ==> [E:/c++/mingw/lib]
+        collapse library dir [E:/c++/mingw/lib/clang/19/lib/windows] ==> [E:/c++/mingw/lib/clang/19/lib/windows]
+        implicit libs: [c++;mingw32;unwind;moldname;mingwex;advapi32;shell32;user32;kernel32;mingw32;unwind;moldname;mingwex;kernel32]
+        implicit objs: [E:/c++/mingw/x86_64-w64-mingw32/lib/crt2.o;E:/c++/mingw/x86_64-w64-mingw32/lib/crtbegin.o;E:/c++/mingw/x86_64-w64-mingw32/lib/crtend.o]
+        implicit dirs: [E:/c++/mingw/x86_64-w64-mingw32/lib;E:/c++/mingw/x86_64-w64-mingw32/mingw/lib;E:/c++/mingw/lib;E:/c++/mingw/lib/clang/19/lib/windows]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/c++/cmake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "E:/c++/cmake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "E:/c++/mingw/bin/ld.lld" "-v"
+      LLD 19.1.5 (https://github.com/llvm/llvm-project.git ab4b5a2db582958af1ee308a790cfdb42bd24720) (compatible with GNU linkers)
+...
