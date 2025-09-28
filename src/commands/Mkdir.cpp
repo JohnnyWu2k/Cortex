@@ -2,6 +2,7 @@
 #include "../shell/CommandContext.hpp"
 #include "../vfs/IVfs.hpp"
 #include "Helpers.hpp"
+#include <string_view>
 
 class Mkdir : public ICommand {
 public:
@@ -27,7 +28,12 @@ Examples:
             ctx.vfs.mkdir(abs, recursive);
             return 0;
         } catch (const std::exception& e) {
-            ctx.out << "mkdir: " << e.what() << std::endl;
+            std::string_view msg{e.what()};
+            if (msg.rfind("mkdir: ", 0) == 0) {
+                ctx.out << msg << std::endl;
+            } else {
+                ctx.out << "mkdir: " << msg << std::endl;
+            }
             return 1;
         }
     }

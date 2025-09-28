@@ -28,7 +28,15 @@ Examples:
             }
             // compute VFS-absolute path from host path
             auto rel = std::filesystem::relative(resolved, ctx.vfs.root(), ec);
-            ctx.cwd = std::filesystem::path("/") / rel;
+            if (ec) {
+                ctx.out << "cd: " << ec.message() << std::endl;
+                return 1;
+            }
+            auto new_cwd = (std::filesystem::path("/") / rel).lexically_normal();
+            if (new_cwd.empty()) {
+                new_cwd = std::filesystem::path("/");
+            }
+            ctx.cwd = std::move(new_cwd);
             return 0;
         } catch (const std::exception& e) {
             ctx.out << "cd: " << e.what() << std::endl;

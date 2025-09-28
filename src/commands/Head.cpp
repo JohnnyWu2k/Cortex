@@ -21,6 +21,10 @@ Examples:
 )";
     }
     int execute(CommandContext& ctx) override {
+        if (ctx.args.size() == 1) {
+            ctx.out << "head: common usage\n  head [-n N] [file]\n  cat file | head\nUse 'help head' for full help." << std::endl;
+            return 0;
+        }
         size_t n = 10;
         std::string file;
         for (size_t i = 1; i < ctx.args.size(); ++i) {
@@ -56,4 +60,3 @@ Examples:
 };
 
 namespace Builtins { std::unique_ptr<ICommand> make_head(){ return std::make_unique<Head>(); } }
-

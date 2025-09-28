@@ -3,6 +3,7 @@
 #ifdef _WIN32
 #  include <windows.h>
 #endif
+#include <iostream>
 
 class Clear : public ICommand {
 public:
@@ -18,6 +19,16 @@ Notes:
 #ifdef _WIN32
         HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
         if (hOut != INVALID_HANDLE_VALUE) {
+            DWORD mode = 0;
+            if (GetConsoleMode(hOut, &mode)) {
+                DWORD desired = mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+                if (desired != mode) {
+                    SetConsoleMode(hOut, desired);
+                }
+                ctx.out << "\x1b[2J\x1b[3J\x1b[H";
+                ctx.out.flush();
+                return 0;
+            }
             CONSOLE_SCREEN_BUFFER_INFO csbi;
             if (GetConsoleScreenBufferInfo(hOut, &csbi)) {
                 DWORD cellCount = static_cast<DWORD>(csbi.dwSize.X) * static_cast<DWORD>(csbi.dwSize.Y);
@@ -29,13 +40,15 @@ Notes:
                 return 0;
             }
         }
-        // If not a console, do nothing (avoid printing control chars)
+        // Not an interactive console, fall back to ANSI sequence
+        ctx.out << "\x1b[2J\x1b[3J\x1b[H";
+        ctx.out.flush();
         return 0;
 #else
-        ctx.out << "\x1b[2J\x1b[H";
+        ctx.out << "\x1b[2J\x1b[3J\x1b[H";
+        ctx.out.flush();
         return 0;
 #endif
-        return 0;
     }
 };
 

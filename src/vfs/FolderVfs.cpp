@@ -60,7 +60,14 @@ void FolderVfs::touch(const std::filesystem::path& path) {
 
 void FolderVfs::mkdir(const std::filesystem::path& path, bool recursive) {
     std::error_code ec;
-    if (recursive) create_directories(path, ec); else create_directory(path, ec);
+    if (recursive) {
+        create_directories(path, ec);
+    } else {
+        if (exists(path)) {
+            throw std::runtime_error("mkdir: file exists");
+        }
+        create_directory(path, ec);
+    }
     if (ec) throw std::runtime_error("mkdir: " + ec.message());
 }
 

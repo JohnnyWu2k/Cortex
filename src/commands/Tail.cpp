@@ -22,6 +22,10 @@ Examples:
 )";
     }
     int execute(CommandContext& ctx) override {
+        if (ctx.args.size() == 1) {
+            ctx.out << "tail: common usage\n  tail [-n N] [file]\n  cat file | tail\nUse 'help tail' for full help." << std::endl;
+            return 0;
+        }
         size_t n = 10;
         std::string file;
         for (size_t i = 1; i < ctx.args.size(); ++i) {

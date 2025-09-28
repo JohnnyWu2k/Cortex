@@ -40,6 +40,16 @@ Examples:
         try { base_host = ctx.vfs.resolveSecure(ctx.cwd, base_vfs); }
         catch(const std::exception& e){ ctx.out << "unpack: " << e.what() << std::endl; return 1; }
 
+        std::error_code base_ec;
+        if (!fs::exists(base_host, base_ec)) {
+            try {
+                ctx.vfs.mkdir(base_host, true);
+            } catch (const std::exception& e) {
+                ctx.out << "unpack: " << e.what() << std::endl;
+                return 1;
+            }
+        }
+
         std::ifstream ifs(archive_host, std::ios::binary);
         if (!ifs) { ctx.out << "unpack: cannot open archive" << std::endl; return 1; }
         std::string line;
@@ -51,6 +61,7 @@ Examples:
             return s;
         };
 
+        size_t entries = 0;
         while (true) {
             if (!read_line(ifs, line)) break; // EOF ok
             if (line.empty()) continue;
@@ -62,6 +73,7 @@ Examples:
                 char nl; ifs.read(&nl, 1); // consume newline
                 fs::path out = base_host / fs::path(rel);
                 ctx.vfs.mkdir(out, true);
+                ++entries;
             } else if (line[0] == 'F') {
                 // F <len> <size>
                 size_t sp1 = line.find(' ');
@@ -73,13 +85,17 @@ Examples:
                 std::string data = read_n(size);
                 fs::path out = base_host / fs::path(rel);
                 ctx.vfs.writeFile(out, data, false);
+                ++entries;
             } else {
                 ctx.out << "unpack: unknown entry" << std::endl; return 1;
             }
+        }
+        if (entries == 0) {
+            ctx.out << "unpack: archive contained no entries" << std::endl;
+            return 1;
         }
         return 0;
     }
 };
 
 namespace Builtins { std::unique_ptr<ICommand> make_unpack(){ return std::make_unique<Unpack>(); } }
-

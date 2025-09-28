@@ -13,7 +13,7 @@ Examples:
 )";
     }
     int execute(CommandContext& ctx) override {
-        ctx.out << ctx.cwd.string() << std::endl;
+        ctx.out << ctx.cwd.generic_string() << std::endl;
         return 0;
     }
 };

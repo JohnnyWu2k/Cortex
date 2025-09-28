@@ -2,6 +2,7 @@
 #include "../shell/CommandContext.hpp"
 #include "../vfs/IVfs.hpp"
 #include "Helpers.hpp"
+#include "../core/Interrupt.hpp"
 #include <filesystem>
 #include <system_error>
 
@@ -38,6 +39,10 @@ Examples:
 )";
     }
     int execute(CommandContext& ctx) override {
+        if (ctx.args.size() == 1) {
+            ctx.out << "find: common usage\n  find <path> [-name PAT] [-type f|d] [-maxdepth D]\nUse 'help find' for full help." << std::endl;
+            return 0;
+        }
         namespace fs = std::filesystem;
         fs::path start{"."};
         std::string name_pat;
@@ -96,6 +101,7 @@ Examples:
         if (ec) { ctx.out << "find: cannot access start path" << std::endl; return 1; }
 
         if (fs::is_regular_file(st)) {
+            if (Interrupt::check()) { ctx.out << "\nCommand interrupted." << std::endl; return 130; }
             fs::directory_entry de(start_abs, ec);
             if (!ec && match_entry(de)) print_vfs_path(start_abs);
             return 0;
@@ -108,6 +114,7 @@ Examples:
 
             fs::recursive_directory_iterator it(start_abs, fs::directory_options::skip_permission_denied, ec), end;
             for (; it != end; ++it) {
+                if (Interrupt::check()) { ctx.out << "\nCommand interrupted." << std::endl; return 130; }
                 if ((int)it.depth() >= maxdepth) { it.disable_recursion_pending(); }
                 const auto& de2 = *it;
                 if (match_entry(de2)) print_vfs_path(de2.path());
@@ -118,4 +125,3 @@ Examples:
 };
 
 namespace Builtins { std::unique_ptr<ICommand> make_find(){ return std::make_unique<Find>(); } }
-

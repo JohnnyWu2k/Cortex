@@ -46,6 +46,10 @@ namespace Builtins {
     std::unique_ptr<ICommand> make_grep();
     std::unique_ptr<ICommand> make_pack();
     std::unique_ptr<ICommand> make_unpack();
+    std::unique_ptr<ICommand> make_chmod();
+    std::unique_ptr<ICommand> make_test();
+    std::unique_ptr<ICommand> make_bracket();
+    std::unique_ptr<ICommand> make_pkg();
 }
 
 namespace Builtins {
@@ -73,6 +77,10 @@ namespace Builtins {
         reg.add(make_grep());
         reg.add(make_pack());
         reg.add(make_unpack());
+        reg.add(make_chmod());
+        reg.add(make_test());
+        reg.add(make_bracket());
+        reg.add(make_pkg());
     }
 }
 

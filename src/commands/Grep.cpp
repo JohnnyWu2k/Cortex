@@ -2,6 +2,7 @@
 #include "../shell/CommandContext.hpp"
 #include "../vfs/IVfs.hpp"
 #include "Helpers.hpp"
+#include "../core/Interrupt.hpp"
 #include <algorithm>
 #include <cctype>
 #include <filesystem>
@@ -30,6 +31,10 @@ Examples:
 )";
     }
     int execute(CommandContext& ctx) override {
+        if (ctx.args.size() == 1) {
+            ctx.out << "grep: common usage\n  grep [-n] [-i] [-r] PATTERN [path]\nUse 'help grep' for full help." << std::endl;
+            return 0;
+        }
         using namespace std;
         namespace fs = std::filesystem;
         bool opt_n=false, opt_i=false, opt_r=false;
@@ -46,12 +51,13 @@ Examples:
         if (pattern.empty()) { ctx.out << "grep: missing PATTERN" << endl; return 2; }
         string pat = opt_i ? to_lower(pattern) : pattern;
 
-        auto search_file = [&](const fs::path& host_path, const fs::path& vfs_base){
+        auto search_file = [&](const fs::path& host_path){
             try{
                 string data = ctx.vfs.readFile(host_path);
                 // iterate lines
-                size_t pos=0; size_t line_no=1; bool first=true;
+                size_t pos=0; size_t line_no=1;
                 while (pos <= data.size()){
+                    if (Interrupt::check()) { ctx.out << "\nCommand interrupted." << endl; return; }
                     size_t end = data.find('\n', pos);
                     string line = end==string::npos ? data.substr(pos) : data.substr(pos, end-pos);
                     string hay = opt_i ? to_lower(line) : line;
@@ -72,8 +78,9 @@ Examples:
         if (paths.empty()){
             // read from stdin
             string all, line; vector<string> lines; lines.reserve(128);
-            while (std::getline(ctx.in, line)) { lines.push_back(line); }
+            while (std::getline(ctx.in, line)) { if (Interrupt::check()) { ctx.out << "\nCommand interrupted." << endl; return 130; } lines.push_back(line); }
             for (size_t i=0;i<lines.size();++i){
+                if (Interrupt::check()) { ctx.out << "\nCommand interrupted." << endl; return 130; }
                 string hay = opt_i ? to_lower(lines[i]) : lines[i];
                 if (hay.find(pat) != string::npos){
                     if (opt_n) ctx.out << (i+1) << ':';
@@ -93,10 +100,10 @@ Examples:
             if (fs::is_directory(host, ec)){
                 if (!opt_r){ ctx.out << "grep: " << pstr << ": Is a directory (use -r)" << endl; continue; }
                 for (fs::recursive_directory_iterator it(host, fs::directory_options::skip_permission_denied, ec), end; it!=end; ++it){
-                    if (it->is_regular_file(ec)) search_file(it->path(), vfs_p);
+                    if (it->is_regular_file(ec)) search_file(it->path());
                 }
             } else if (fs::is_regular_file(host, ec)){
-                search_file(host, vfs_p);
+                search_file(host);
             } else {
                 ctx.out << "grep: cannot access: " << pstr << endl;
             }
@@ -106,4 +113,3 @@ Examples:
 };
 
 namespace Builtins { std::unique_ptr<ICommand> make_grep(){ return std::make_unique<Grep>(); } }
-
